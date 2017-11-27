@@ -11,7 +11,10 @@ $(document).ready(function(){
 		$("h3").show();
 		$("p").show();
 		$("input").show();
+		startTime();
 	});
+
+	var intervalId;
 	//time counter starts - 2:00 minutes
 	function startTime() {
 		document.getElementById('timeRemaining').innerHTML = "Time Remaining: " 
