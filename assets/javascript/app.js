@@ -7,7 +7,7 @@ var intervalId;
 //timer object, starts at 30 seconds
 var timer = {
 	
-	time: 10,
+	time: 30,
 
 //starts the timer
 startTime: function() {
@@ -40,6 +40,32 @@ timeConverter: function(t) {
 }
 };
 
+//shows correct, incorrect, and unanswered scores
+//I couldn't get this to work, unfortunately :(
+function triviaOver() {
+	var correctAnswers = 0;
+	var incorrectAnswers = 0;
+	var unanswered = (6 - correctAnswers - incorrectAnswers);
+
+	if ($('input:checked[value="correct"]').val() == 'correct') {
+		$("#correctAnswers").text("Correct Answers: " + correctAnswers++)
+	} if ($('input:checked[value="incorrect"]').val() == 'incorrect') {
+		$("#incorrectAnswers").text("Incorrect Answers: " + incorrectAnswers++)
+	} else ($("#unanswered").text("Unanswered: " + unanswered));
+};
+
+//when time is up, games end -- hide h2, h3, p, input & show h4
+function stopTimer() {
+	setTimeout(function(){
+		$("h2").hide();
+		$("h3").hide();
+		$("p").hide();
+		$("input").hide();
+		$("h4").show();
+	}, 30000);
+	triviaOver();
+};
+
 //hide all questions and answers until start button is clicked
 $("h2").hide();
 $("h3").hide();
@@ -53,31 +79,9 @@ $("#startButton").click(function() {
 		$("h3").show();
 		$("p").show();
 		$("input").show();
-		$('#timeRemaining').html("Time Remaining: 00:10");		
+		$('#timeRemaining').html("Time Remaining: 00:30");		
 });
 $("#startButton").click(stopTimer);
-
-//when time is up, games end -- hide h2, h3, p, input & show h4
-function stopTimer() {
-	setTimeout(function(){
-		$("h2").hide();
-		$("h3").hide();
-		$("p").hide();
-		$("input").hide();
-		$("h4").show();
-	}, 10000);
-	triviaOver();
-};
-
-//shows correct, incorrect, and unanswered scores
-var triviaOver = function() {
-	var correctAnswers = $('input:checked[value=correct]').length; 
-		$("#correctAnswers").text("Correct Answers: " + correctAnswers)
-	//if ($('input:checked[value="correct"]').val() == 'correct') {};	
-	var incorrectAnswers = $('input:checked[value=incorrect]').length;
-		$("#incorrectAnswers").text("Incorrect Answers: " + incorrectAnswers)
-	//var unanswered = 0;
-};
 
 });
 

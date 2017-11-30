@@ -9,12 +9,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!--CSS STYLESHEET-->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <!--GOOGLE FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Lato" rel="stylesheet">
 </head>
 <body>
 	<header>Totally Trivial Trivia</header>
+	<div class="wrapper">
 		<h1>All About Olivia's Cats</h1>
+			<img src="./assets/images/finn.jpg" alt="Finn Cat">
+			<img src="./assets/images/cricket.jpg" alt="Cricket Cat">
+			
+			<br>
+			
 			<!--START BUTTON -->
 			<button id="startButton">START</button>
+			
+			<!--Trivia Game Questions -->
 			<h2 id="timeRemaining"></h2>
 				<form>
 					<h3 id="questions">How many cats has Olivia had in her lifetime?</h3>
@@ -68,12 +78,12 @@
 							<input type="radio" value="incorrect" name="trivia">Louisa May Alcott Garrett
 						</p>
 				</form>
+			<!--Answer Display-->	
 			<h4 id="allDone"></h4>
 				<h4 id="correctAnswers"></h4>
 				<h4 id="incorrectAnswers"></h4>
 				<h4 id="unanswered"></h4>
-
-
+	</div>
 <!-- Javascript Link -->
 	<script src="./assets/javascript/app.js"></script>
 </body>
